@@ -25,6 +25,7 @@ export default function Login({setToken}){
                   const result = await response.json()
                   console.log(result)
                   setToken(result.token)
+                  localStorage.setItem("token", result.token )
                 } catch(err){
                         console.error(err)
                 }

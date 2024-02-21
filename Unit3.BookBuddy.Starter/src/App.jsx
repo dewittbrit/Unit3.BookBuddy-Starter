@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import bookLogo from './assets/books.png'
 import Books from './components/Books'
 import Register from './components/Register'
@@ -9,9 +9,23 @@ function App() {
   const [token, setToken] = useState(null)
   const [newReservedBook, setNewReservedBook] = useState(null)
 
+  useEffect(()=>{
+    let savedToken = localStorage.getItem("token")
+    if(savedToken !="null"){
+      setToken(savedToken)
+    }
+
+  }, [])
+
+  function logOut(){
+    localStorage.setItem("token", null)
+    setToken(null)
+  }
  
   return (
     <>
+
+    <button onClick={logOut}>Log Out </button>
     <h2>Register</h2>
     <Register/>
     <h2>Login</h2>
