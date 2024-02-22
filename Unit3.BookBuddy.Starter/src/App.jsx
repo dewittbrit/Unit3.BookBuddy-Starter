@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react'
+import {Link, Routes, Route} from 'react-router-dom'
 import bookLogo from './assets/books.png'
 import Books from './components/Books'
 import Register from './components/Register'
@@ -25,7 +26,7 @@ function App() {
   return (
     <>
 
-    <button onClick={logOut}>Log Out </button>
+    {/* <button onClick={logOut}>Log Out </button>
     <h2>Register</h2>
     <Register/>
     <h2>Login</h2>
@@ -40,7 +41,17 @@ function App() {
 
       <p>You may need to use the `token` in this top-level component in other components that need to know if a user has logged in or not.</p>
 
-      <p>Don't forget to set up React Router to navigate between the different views of your single page application!</p>
+      <p>Don't forget to set up React Router to navigate between the different views of your single page application!</p> */}
+      <Link to="/">Home (See all books)</Link><br></br>
+      <Link to="/login">Login Page</Link><br></br>
+      <Link to="/register">Register Account</Link><br></br>
+      <Link to="/account">See Reserved Books</Link><br></br>
+      <Routes>
+          <Route path="/login" element={<Login setToken={setToken}/>}/>
+          <Route path="/register" element={<Register/>}/>
+          <Route path="/account" element={<Account token={token} newReservedBook={newReservedBook}/>} />
+          <Route path="/" element={<Books token={token} setNewReservedBook={setNewReservedBook}/>}/>
+      </Routes>
     </>
   )
 }
