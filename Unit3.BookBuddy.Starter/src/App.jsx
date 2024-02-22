@@ -26,9 +26,15 @@ function App() {
  
   return (
     <>
+    {
+      token?<button onClick={logOut}>Log Out </button>
+      :<Link to="/login"> Login</Link>
+    }
 
-    {/* <button onClick={logOut}>Log Out </button>
-    <h2>Register</h2>
+
+    {/* <button onClick={logOut}>Log Out </button><br></br> */}
+
+    {/* <h2>Register</h2>
     <Register/>
     <h2>Login</h2>
     <Login setToken={setToken}/>
@@ -42,9 +48,9 @@ function App() {
 
       <p>You may need to use the `token` in this top-level component in other components that need to know if a user has logged in or not.</p>
 
-      <p>Don't forget to set up React Router to navigate between the different views of your single page application!</p> */}
+      <p>Don't forget to set up React Router to navigate between the different views of your single page application!</p> */} 
       <Link to="/">Home (See all books)</Link><br></br>
-      <Link to="/login">Login Page</Link><br></br>
+      {/* <Link to="/login">Login Page</Link><br></br> */}
       <Link to="/register">Register Account</Link><br></br>
       <Link to="/account">See Reserved Books</Link><br></br>
       <Routes>
