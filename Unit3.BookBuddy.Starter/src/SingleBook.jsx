@@ -5,11 +5,18 @@ import { useParams } from "react-router-dom"
 export default function SingleBook(){
    
 let {bookID} = useParams()
+let {bookTitle} = useParams()
+let {bookAuthor} = useParams()
+let {bookDescription} = useParams()
+
     
 
 return (
 <>
    <p>Book ID is {bookID}</p>
+   <p>Book Title: {bookTitle}</p>
+   <p>Author: {bookAuthor}</p>
+   <p>Description: <br></br> {bookDescription}</p>
 </>
     )
 

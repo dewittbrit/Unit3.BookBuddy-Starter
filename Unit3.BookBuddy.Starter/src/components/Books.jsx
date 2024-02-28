@@ -43,7 +43,7 @@ return (
 <>
     {books && books.map(book=>{
         return <div key={book.id}><p key={book.id} >{book.title}</p>
-        <Link to={`/books/${book.id}`}><button> Single Book </button></Link>
+        <Link to={`/books/${book.id}/${book.title}/${book.author}/${book.description}`}><button> Single Book </button></Link>
         <button onClick={()=>checkOut(book.id)}>Reserve Book</button>
 </div>
     })
