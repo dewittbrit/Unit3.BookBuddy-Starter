@@ -6,6 +6,7 @@ import Register from './components/Register'
 import Login from './components/Login'
 import Account from './components/Account'
 import SingleBook from './SingleBook'
+import BookSearch from './components/SearchBook'
 
 function App() {
   const [token, setToken] = useState(null)
@@ -29,30 +30,12 @@ function App() {
     {
       token?<button onClick={logOut}>Log Out </button>
       :<Link to="/login"> Login</Link>
-    }
-
-
-    {/* <button onClick={logOut}>Log Out </button><br></br> */}
-
-    {/* <h2>Register</h2>
-    <Register/>
-    <h2>Login</h2>
-    <Login setToken={setToken}/>
-    <h2>See Reserved Books</h2>
-    <Account token={token} newReservedBook={newReservedBook}/>
-    <h2>See all books</h2>
-    <Books token={token} setNewReservedBook={setNewReservedBook}/>
-      <h1><img id='logo-image' src={bookLogo}/>Library App</h1>
-
-      <p>Complete the React components needed to allow users to browse a library catalog, check out books, review their account, and return books that they've finished reading.</p>
-
-      <p>You may need to use the `token` in this top-level component in other components that need to know if a user has logged in or not.</p>
-
-      <p>Don't forget to set up React Router to navigate between the different views of your single page application!</p> */} 
+    }<br></br>
       <Link to="/">Home (See all books)</Link><br></br>
       {/* <Link to="/login">Login Page</Link><br></br> */}
       <Link to="/register">Register Account</Link><br></br>
       <Link to="/account">See Reserved Books</Link><br></br>
+      <BookSearch/>
       <Routes>
         <Route path="/books/:bookID" element = {<SingleBook/>}/>
           <Route path="/login" element={<Login setToken={setToken}/>}/>
