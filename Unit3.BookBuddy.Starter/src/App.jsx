@@ -54,7 +54,7 @@ function App() {
       <Link to="/register">Register Account</Link><br></br>
       <Link to="/account">See Reserved Books</Link><br></br>
       <Routes>
-        <Route path="/books/:bookID" element = {<SingleBook/>}/>
+        <Route path="/books/:bookID/:bookTitle/:bookAuthor/:bookDescription" element = {<SingleBook/>}/>
           <Route path="/login" element={<Login setToken={setToken}/>}/>
           <Route path="/register" element={<Register/>}/>
           <Route path="/account" element={<Account token={token} newReservedBook={newReservedBook}/>} />
