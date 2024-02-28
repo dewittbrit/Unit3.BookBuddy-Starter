@@ -21,12 +21,35 @@ export default function Account({token, setNewReservedBook}){
                 console.error(err)
         }
             }    getReservedBooks()
-    }, [token, setNewReservedBook])
+    }, [token, setNewReservedBook]);
+
+    async function returnBook(bookId) {
+        try {
+            const response = await fetch(`https://fsa-book-buddy-b6e748d1380d.herokuapp.com/api/reservations/${bookId}`, {
+                method: "DELETE",
+                headers: {
+                    "Content-Type": "application/json",
+                    "Authorization": `Bearer ${token}`
+                }
+            });
+
+            if (response.ok) {
+                // Book returned successfully, update reservedBooks state
+                setReservedBooks(reservedBooks.filter(book => book.id !== bookId));
+                // You might want to trigger additional actions, like updating UI or state elsewhere
+            } else {
+                console.error("Failed to return book");
+            }
+        } catch (err) {
+            console.error(err);
+        }
+    }
 
 return (
 <>
     {reservedBooks && reservedBooks.map(book=>{
         return <div key={book.id}><p key={book.id} >{book.title}</p>
+        <button onClick={() => returnBook(book.id)}>Return</button>
 </div>
     })
     
