@@ -6,6 +6,7 @@ import Register from './components/Register'
 import Login from './components/Login'
 import Account from './components/Account'
 import SingleBook from './SingleBook'
+import BookSearch from './components/SearchBook'
 
 function App() {
   const [token, setToken] = useState(null)
@@ -53,6 +54,7 @@ function App() {
       {/* <Link to="/login">Login Page</Link><br></br> */}
       <Link to="/register">Register Account</Link><br></br>
       <Link to="/account">See Reserved Books</Link><br></br>
+      <BookSearch/>
       <Routes>
         <Route path="/books/:bookID" element = {<SingleBook/>}/>
           <Route path="/login" element={<Login setToken={setToken}/>}/>
